@@ -1,0 +1,76 @@
+<div v-if="busy">
+    Loading...
+</div>
+
+<div v-else>
+    <div class="tile is-ancestor">
+        <div class="tile is-4 is-vertical is-parent" style="height: fit-content">
+            <div class="tile is-child box">
+                <label for="fecha" class="label">Fecha:</label>
+                <input type="date" v-model="datePicked">
+            </div>
+            <div class="tile is-child box">
+                <label for="cliente" class="label">Trabajador seleccionado : {{trabajador.nombre}}</label>
+                <select v-model="trabajadorId">
+                    <option value="null" selected="yes" disabled>Selecciones a un trabajador</option>
+                    <option v-for="trabajador in trabajadores">{{trabajador.id}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="tile is-parent">
+            <div class="tile is-child box" style="height:100vh; overflow: auto;">
+                <div class="row" v-for="hour in hours" @click="showAddParte(hour.hour)">
+                    <div style="display: flex; width: 5vw;">
+                        <p style="font-size: xx-large; margin: auto;">{{hour.hour}}</p>
+                    </div>
+                    <div class="column" style="padding: 0%;">
+                        <div class="divPercent" :id="partes.id" :name="hour.hour"  @click="showParte(partes.id)" v-for="partes in hour.partes">
+                            {{partes}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal is-active" v-show="createModal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <div class="box">
+            <form @submit.prevent="createParte">
+                <div class="field">
+                    <label for="fechaEntrada" class="label">Fecha de entrada</label>
+                    <div class="control" style="display: flex; flex-direction: row;">
+                        <p style="margin: auto;">{{parte.fechaEntrada.toLocaleString()}}</p>
+                        <input type="time" class="input" v-model="hourStringEntrada" id="fechaEntrada" min="08:00" max="23:00" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="fechaSalida" class="label">Fecha de salida</label>
+                    <div class="control" style="display: flex; flex-direction: row;">
+                        <p style="margin: auto;">{{parte.fechaSalida.toLocaleString()}}</p>
+                        <input type="time" class="input" v-model="hourStringSalida" id="fechaSalida" min="08:00" max="23:00" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="idProyecto" class="label">Identificador del proyecto</label>
+                    <div class="control">
+                        <input id="idProyecto" class="input" type="number" v-model.number="parte.proyectoId" required/>  
+                    </div>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button type="submit" class="button is-success is-fullwidth is-outlined">Create</button>
+                    </div>
+                    <div class="control">
+                        <button @click="createModal = false; isShowParte = false" class="button is-danger is-fullwidth is-outlined">Cancel</button>
+                    </div>
+                </div>
+                <div>
+                    {{parte}}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

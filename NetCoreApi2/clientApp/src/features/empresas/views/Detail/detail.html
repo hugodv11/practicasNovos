@@ -1,0 +1,35 @@
+<div v-if="busy">
+    Loading...
+</div>
+
+<div v-else>
+    <hr/>
+    <h1 class="title is-4"> La empresa actual es {{empresa.nombre}} y su CIF es {{empresa.cif}} </h1>
+    <hr/>
+    <table class="table is-fullwidth is-hoverable">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Código</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="client in empresa.clientes">
+                <td>{{client.nombre}}</td>
+                <td>{{client.codigo}}</td>
+                <td>
+                    <router-link :to="{name: 'clienteProyectos', params: {clienteId: client.id}}">Ver proyectos</router-link>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button @click="deleteEmpresa(empresa.id)">Borrar esta empresa</button>
+<router-view/>
+
+
+
+
+
+    

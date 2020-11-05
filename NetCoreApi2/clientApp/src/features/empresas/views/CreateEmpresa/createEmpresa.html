@@ -1,0 +1,28 @@
+<form @submit.prevent="createParte()">
+    <div class="field">
+        <label for="fechaEntrada" class="label">Fecha de entrada</label>
+        <div class="control">
+            <!-- <DateTimeInput v-model="parte.fechaEntrada" class="input" id="fechaEntrada" required/> -->
+        </div>
+    </div>
+    <div class="field">
+        <label for="fechaSalida" class="label">Fecha de salida</label>
+        <div class="control">
+            <!-- <DateTimeInput v-model="parte.fechaSalida" class="input" id="fechaSalida" required/>   -->
+        </div>
+    </div>
+    <div class="field">
+        <label for="idProyecto" class="label">Identificador del proyecto</label>
+        <div class="control">
+            <!-- <input id="idProyecto" class="input" type="number" v-model.number="parte.proyectoId" required/>   -->
+        </div>
+    </div>
+    <div class="field is-grouped">
+        <div class="control">
+            <button type="submit" class="button is-success is-fullwidth is-outlined">Create</button>
+        </div>
+        <div class="control">
+            <button @click="closeModals" class="button is-danger is-fullwidth is-outlined">Cancel</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,22 @@
+<div v-if="busy">
+    Loading...
+</div>
+
+<div v-else>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr v-for="trabajador in trabajadores">
+                <td>{{trabajador.codigo}}</td>
+                <td><router-link :to="{name: 'trabajadorDetail', params: {trabajadorId : trabajador.id}}">{{trabajador.nombre}}</router-link></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<router-view/>

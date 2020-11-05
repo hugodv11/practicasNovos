@@ -1,0 +1,28 @@
+<div v-if="busy">
+    Loading...
+</div>
+<nav class="navbar is-dark" v-else>
+    <div class="navbar-menu">
+        <div class="navbar-start">
+            <div class="navbar-item"><router-link :to="{name: 'empresas'}" class="button is-dark">Empresas</router-link></div>
+            <div class="navbar-item"><router-link :to="{name: 'trabajadores'}" class="button is-dark">Empleados</router-link></div>
+            <div class="navbar-item"><router-link :to="{name: 'PartesCalendar'}" class="button is-dark">Partes</router-link></div>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <button @click="createEmpresa" v-if="isEmpresa" class="button is-centered">Añadir nueva empresa</button>
+            </div>
+            <div class="select" v-if="isEmpresa">
+                <div class="navbar-item">
+                    <select v-model="selectedEmpresa" @change="changeEmpresa()">
+                        <option selected="yes" value="null" disabled>Elige una opción</option>
+                        <option v-for="empresa in empresas">{{empresa.nombre}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div style="display: flex; flex-direction: column; overflow: auto;">
+    <router-view/>
+</div>
