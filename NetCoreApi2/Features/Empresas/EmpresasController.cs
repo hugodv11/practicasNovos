@@ -47,7 +47,7 @@ namespace NetCoreApi2.Features.Empresas
             await _context.Proyectos.Include(proyecto => proyecto.Partes).ToListAsync();
             await _context.Clientes.Include(cliente => cliente.Proyectos).ToListAsync();
             var empresa = await _context.Empresas.Include(empresa => empresa.Clientes).FirstOrDefaultAsync(x => x.Id == id);
-            if(empresa == null)
+            if (empresa == null)
             {
                 return NotFound("La empresa indicada no existe");
             }
@@ -56,5 +56,5 @@ namespace NetCoreApi2.Features.Empresas
             return Ok();
         }
 
-    }//end class EmpresasController 
+    }
 }

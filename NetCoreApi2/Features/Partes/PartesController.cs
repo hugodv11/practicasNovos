@@ -43,7 +43,7 @@ namespace NetCoreApi2.Features.Partes
         public async Task<ActionResult<PartesModel>> UpdateParte(PartesModel toUpdate) //Hace falta tener en cuenta que el nuevo parte no puede pisar el tiempo de otro
         {
             var parte = await _context.Partes.FirstOrDefaultAsync(parte => parte.Id == toUpdate.Id);
-            if(parte != null)
+            if (parte != null)
             {
                 _context.Entry(parte).CurrentValues.SetValues(toUpdate);
                 await _context.SaveChangesAsync();
@@ -73,7 +73,7 @@ namespace NetCoreApi2.Features.Partes
                 else { return BadRequest("Las fechas son incorrectas"); }
             }
             else { return BadRequest("No has pasado las validaciones"); }
-        } 
+        }
 
 
         public bool DateValidations(PartesModel newParte)
@@ -94,18 +94,18 @@ namespace NetCoreApi2.Features.Partes
                     TimeSpan horaSalidaSecs = new TimeSpan(p.FechaSalida.Hour, p.FechaSalida.Minute, 0);
                     TimeSpan newHoraEntradaSecs = new TimeSpan(newParte.FechaEntrada.Hour, newParte.FechaEntrada.Minute, 0);
                     TimeSpan newHoraSalidaSecs = new TimeSpan(newParte.FechaSalida.Hour, newParte.FechaSalida.Minute, 0);
-                    if(newHoraEntradaSecs.TotalSeconds > horaEntradaSecs.TotalSeconds)
+                    if (newHoraEntradaSecs.TotalSeconds > horaEntradaSecs.TotalSeconds)
                     {
                         if (horaSalidaSecs > newHoraEntradaSecs)
                         {
-                            return false;  
+                            return false;
                         }
                     }
                     else
                     {
-                        if(newHoraEntradaSecs < horaEntradaSecs)
+                        if (newHoraEntradaSecs < horaEntradaSecs)
                         {
-                            if(horaEntradaSecs < newHoraSalidaSecs)
+                            if (horaEntradaSecs < newHoraSalidaSecs)
                             {
                                 return false;
                             }
@@ -114,7 +114,7 @@ namespace NetCoreApi2.Features.Partes
                 }
                 return true;
             }
-            else { return true; } 
+            else { return true; }
         }
     } 
 }

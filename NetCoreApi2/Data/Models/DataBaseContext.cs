@@ -1,13 +1,16 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using NetCoreApi2.Authentication;
 using System.Reflection;
 
 namespace NetCoreApi2.Data.Models
 {
-    public class DataBaseContext : DbContext
+    public class DataBaseContext : IdentityDbContext<ApplicationUser>
     {
         public DataBaseContext(DbContextOptions options) : base(options)
         {
         }
+
         public DbSet<EmpresasModel> Empresas { get; set; }
         public DbSet<ClientesModel> Clientes { get; set; }
         public DbSet<ProyectosModel> Proyectos { get; set; }
@@ -16,8 +19,8 @@ namespace NetCoreApi2.Data.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
         }
-        
+
     }
 }

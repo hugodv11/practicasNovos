@@ -38,5 +38,5 @@ namespace NetCoreApi2.Features.Proyectos
             return proyectos;
         }
 
-    }//end class ProyectosController
+    }
 }

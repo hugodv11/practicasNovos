@@ -40,5 +40,5 @@ namespace NetCoreApi2.Features.Trabajadores
             return trabajadores;
         }
 
-    }//end class TrabajadoresController
+    }
 }

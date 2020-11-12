@@ -35,7 +35,5 @@ namespace NetCoreApi2.Features.Clientes
 
             return clientes;
         }
-
-
-    }//end class ClientesController
+    }
 }
