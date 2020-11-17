@@ -36,14 +36,18 @@ namespace NetCoreApi2
                 .AddNewtonsoftJson(options =>
                     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
                 );
+
             services.AddDbContext<DataBaseContext>(
                 options => options.UseSqlServer(Configuration["ConnectionString:EmpresaDBConnection"]));
+
             services.AddIdentity<ApplicationUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<DataBaseContext>();
 
-            //configure strongly typed settings objects
+            services.AddSpaStaticFiles(options => options.RootPath = "clientApp/dist");
+
             var jwtSection = Configuration.GetSection("JwtBearerTokenSettings");
             services.Configure<JwtBearerTokenSettings>(jwtSection);
+
             var jwtBearerTokenSettings = jwtSection.Get<JwtBearerTokenSettings>();
             var key = Encoding.ASCII.GetBytes(jwtBearerTokenSettings.SecretKey);
 
@@ -89,9 +93,21 @@ namespace NetCoreApi2
 
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSpaStaticFiles();
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "clientApp";
+                if (env.IsDevelopment())
+                {
+                    //Launc development server for Vue.js
+                    spa.UseVueDevelopmentServer();
+                }
             });
         }
     }

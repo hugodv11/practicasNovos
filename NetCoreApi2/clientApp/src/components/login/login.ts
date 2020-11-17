@@ -16,6 +16,6 @@ export default class Login extends Vue{
     }
 
     created(){
-        this.username = "Me cago en dios";
+        this.username = "Example";
     }
 }
