@@ -45,6 +45,8 @@ namespace NetCoreApi2
 
             services.AddSpaStaticFiles(options => options.RootPath = "clientApp/dist");
 
+            services.AddControllersWithViews();
+
             var jwtSection = Configuration.GetSection("JwtBearerTokenSettings");
             services.Configure<JwtBearerTokenSettings>(jwtSection);
 
@@ -93,10 +95,10 @@ namespace NetCoreApi2
 
             app.UseAuthorization();
 
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                
             });
 
             app.UseSpaStaticFiles();

@@ -157,3 +157,13 @@ C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\bin\Debug\netcoreapp3.1
 C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.csproj.CoreCompileInputs.cache
 C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.RazorAssemblyInfo.cache
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.RazorAssemblyInfo.cs
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.TagHelpers.input.cache
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.TagHelpers.output.cache
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.RazorCoreGenerate.cache
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\bin\Debug\netcoreapp3.1\NetCoreApi2.Views.dll
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\bin\Debug\netcoreapp3.1\NetCoreApi2.Views.pdb
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.RazorTargetAssemblyInfo.cs
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\NetCoreApi2.Views.pdb
+C:\Users\hdhalmeida\source\repos\NetCoreApi2\NetCoreApi2\obj\Debug\netcoreapp3.1\Razor\Views\Login\Login.cshtml.g.cs
